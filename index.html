@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="task">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To Do List</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     <link href="css/tarea1.css" rel="stylesheet">
+</head>
+<body>
+	<div ng-controller="hwController">
+		<div class="container col-md-8 col-md-offset-2">
+			<div class="page-header text-center">
+	            <h1 class="title">To Do List</h1>
+	        </div>
+	         <form class="form-horizontal" ng-submit="add()">
+	            <div class="form-group">
+	                <label for="hw-name" class="control-label col-md-3">Title</label>
+	                <div class="col-md-6">
+	                    <input type="text" class="form-control" ng-model="newAct.name" required/>
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <label for="description" class="control-label col-md-3">description</label>
+	                <div class="col-md-6">
+	                    <textarea class="form-control" rows="5" ng-model="newAct.desc"required></textarea>
+	                </div>
+	            </div>
+	            <button type="submit" ng-click="add()">Add</button>
+	        </form>
+	        <hr>
+	        <div ng-repeat="x in arrHw">
+	        	<input type="checkbox" ng-model="x.done">
+	            <span>{{x.name}}</span>
+	       	    <br>       	    
+	   		    <span>{{x.desc}}</span>
+	        </div>
+	        <button ng-click="remove()">Remove</button>
+        </div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>	
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+     <script src="js/tarea1.js"></script>
+</body>
+</html>
