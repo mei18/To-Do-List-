@@ -1,5 +1,5 @@
-var hw = angular.module('task', ["LocalStorageModule"]); //como dependencia
-hw.controller('hwController', function ($scope,localStorageService) {
+angular.module('task', ["LocalStorageModule"]); //como dependencia
+	.controller('hwController', function ($scope,localStorageService) {
 	if(localStorageService.get("angularList")){ //identifical la lista
 		$scope.arrHw = localStorageService.get("angularList");
 	} else {
@@ -7,7 +7,6 @@ hw.controller('hwController', function ($scope,localStorageService) {
 	}
 	
 	$scope.add = function() {
-		// var Todo = { name: $scope.names, desc:$scope.descriptions, done:false};
 		$scope.arrHw.push($scope.newAct);
 		$scope.newAct = {};
 		localStorageService.set("angularList",$scope.arrHw);
@@ -23,3 +22,4 @@ hw.controller('hwController', function ($scope,localStorageService) {
 		localStorageService.set("angularList",$scope.arrHw);
 	};
 });
+
