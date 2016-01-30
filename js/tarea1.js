@@ -1,4 +1,4 @@
-angular.module('task', ["LocalStorageModule"]); //como dependencia
+angular.module('task', ["LocalStorageModule"]) //como dependencia
 	.controller('hwController', function ($scope,localStorageService) {
 	if(localStorageService.get("angularList")){ //identifical la lista
 		$scope.arrHw = localStorageService.get("angularList");
@@ -22,4 +22,3 @@ angular.module('task', ["LocalStorageModule"]); //como dependencia
 		localStorageService.set("angularList",$scope.arrHw);
 	};
 });
-
